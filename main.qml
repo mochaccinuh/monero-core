@@ -948,6 +948,11 @@ ApplicationWindow {
                 appWindow.initialize();
             }
             onOpenWalletFromFileClicked: {
+                console.log("onOpenWalletFromFileClicked");
+
+                if (typeof wizard.settings['wallet'] !== 'undefined')
+                    delete wizard.settings['wallet'];
+
                 rootItem.state = "normal" // TODO: listen for this state change in appWindow;
                 appWindow.openWalletFromFile();
             }
